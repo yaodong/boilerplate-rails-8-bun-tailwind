@@ -8,17 +8,14 @@ const config = {
 };
 
 const build = async (config) => {
-  const result = await Bun.build(config);
-
-  if (!result.success) {
+  try {
+    await Bun.build(config);
+  } catch (error) {
     if (process.argv.includes('--watch')) {
-      console.error("Build failed");
-      for (const message of result.logs) {
-        console.error(message);
-      }
-      return;
+      console.error(error.message);
+      console.error(error.errors);
     } else {
-      throw new AggregateError(result.logs, "Build failed");
+      throw new AggregateError(error.errors, error.message);
     }
   }
 };
