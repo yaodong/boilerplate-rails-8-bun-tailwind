@@ -57,6 +57,9 @@ group :development, :test do
 
   # Git hooks to run linters and formatters
   gem "overcommit", require: false
+
+  # Load environment variables from .env file
+  gem "dotenv"
 end
 
 group :development do

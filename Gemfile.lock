@@ -382,6 +382,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.9)
+  dotenv
   jbuilder
   jsbundling-rails
   kamal
